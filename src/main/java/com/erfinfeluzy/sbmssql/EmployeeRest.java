@@ -26,7 +26,7 @@ public class EmployeeRest {
 
 		System.out.println("Enter /api/v1/home");
 
-		return "This is Spring Boot Application";
+		return "This is Spring Boot Application JASINDO";
     }
     
     @GetMapping("/employees")
