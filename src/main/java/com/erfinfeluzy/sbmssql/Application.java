@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -14,9 +15,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class Application extends SpringBootServletInitializer {
 
-	//public static void main(String[] args) {
-	//	SpringApplication.run(Application.class, args);
-	//}
+	@Override
+    	public SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        	return application.sources(Application.class);
+    	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 
 	@Bean
   	public Docket api() { 
