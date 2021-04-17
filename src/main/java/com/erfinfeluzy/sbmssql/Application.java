@@ -3,6 +3,7 @@ package com.erfinfeluzy.sbmssql;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -11,11 +12,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-public class Application {
+public class Application extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+	//public static void main(String[] args) {
+	//	SpringApplication.run(Application.class, args);
+	//}
 
 	@Bean
   	public Docket api() { 
