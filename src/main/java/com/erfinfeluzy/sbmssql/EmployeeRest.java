@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,11 +23,18 @@ public class EmployeeRest {
     private EmployeeRepository employeeRepository;
 
     @GetMapping("/home")
-	public String home() {
+	public String home(@RequestHeader(required = false) Map<String, String> headers) {
 
 		System.out.println("Enter /api/v1/home");
+		
+		StringBuilder sb = new StringBuilder("================\n");
+		headers.forEach((key, value) -> sb.append(key).append(": ").append(value).append("\n"));
 
-		return "This is Spring Boot Application JASINDO";
+		System.out.println(sb.toString()
+		
+		);
+
+		return "This is Spring Boot Application ERFIN FELUZY.\nHeaders:\n" + sb.toString();
     }
     
     @GetMapping("/employees")
